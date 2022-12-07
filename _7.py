@@ -20,15 +20,15 @@ def build_tree(lines, cur):
             return build_tree(lines[line_num:], cur)
 
     # last entry, collect dir sizes upwards the tree
-    while not cur.is_root:
+    while True:
         cur.size = sum([node.size for node in cur.children])
-        cur = cur.parent
-
+        cur = cur.parent if cur.parent else None
+        if not cur:
+            break
 
 def parse(input):
     tree = Node("root", type="dir", size=0)
     build_tree(input.splitlines()[2:], tree)
-    tree.size = sum([node.size for node in LevelOrderIter(tree, maxlevel=2)])
     return tree
 
 
