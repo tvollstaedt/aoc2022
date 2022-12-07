@@ -4,7 +4,8 @@ This repository holds my solutions for [AoC 2022](https://adventofcode.com/2022)
 
 ## Prerequisites
 
-[Python 3](https://python.org)
+* [Python 3](https://python.org)
+* [anytree](https://anytree.readthedocs.io/) (`pip install anytree`)
 
 ## Run solutions
 
