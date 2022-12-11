@@ -1,14 +1,17 @@
-
-def part1(input: str):
-    X = 1
-    cycles = 0
+def get_ops(input):
     ops = []
-    signal = 0
     # Build operation stack
     for line in input.splitlines():
         if line.startswith("addx"):
             ops.append("noop")
         ops.append(line)
+    return ops
+
+def part1(input: str):
+    X = 1
+    cycles = 0
+    signal = 0
+    ops = get_ops(input)
 
     # Execute
     for op in ops:
@@ -25,12 +28,7 @@ def part1(input: str):
 def part2(input: str):
     X = 1
     cycles = 0
-    ops = []
-
-    for line in input.splitlines():
-        if line.startswith("addx"):
-            ops.append("noop")
-        ops.append(line)
+    ops = get_ops(input)
 
     crt_pos = 0
     for op in ops:
